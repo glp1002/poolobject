@@ -39,7 +39,8 @@
 
   <target name="test" depends="test-compile">
     <jacoco:coverage>
-      <junit printsummary="on" haltonfailure="yes" fork="true">
+      <!-- Se cambia haltonfailure a "no" para comprobar la conexión a Codecov -->
+      <junit printsummary="on" haltonfailure="no" fork="true">
         <classpath>
           <path refid="classpath.test"/>
           <pathelement location="${test.build.dir}"/>
