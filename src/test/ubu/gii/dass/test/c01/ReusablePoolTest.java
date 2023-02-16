@@ -1,5 +1,9 @@
 /**
+ * @authors: Mario Hurtado Ubierna (mhu1001@alu.ubu.es)
+ * 			 Gadea Lucas Pérez (glp1002@alu.ubu.es)
  * 
+ * Descripción: Pila de pruebas para ReusablePool.java
+ * Fecha: Curso 2022/23
  */
 package ubu.gii.dass.test.c01;
 
@@ -8,6 +12,10 @@ import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+// Importamos el objeto ReusablePool
+import ubu.gii.dass.c01.ReusablePool;
+
 
 /**
  * @author alumno
@@ -34,8 +42,19 @@ public class ReusablePoolTest {
 	 */
 	@Test
 	public void testGetInstance() {
-		//fail("Not yet implemented");
-		System.out.println("Prueba para ver si funciona Codecov");
+
+		//Obtenemos una instancia
+		ReusablePool rp1 = ReusablePool.getInstance();
+		// Comprobamos que la instancia no es nula
+		assertNotEquals(null, rp1);
+
+		// Probamos a obtener otra instancia
+		ReusablePool rp2 = ReusablePool.getInstance();
+		// Comprobamos que la instancia no es nula
+		assertNotEquals(null, rp2);
+		// Comprobamos que la instancia es la misma (Singleton)
+		assertEquals(rp1, rp2);
+		
 	}
 
 	/**
