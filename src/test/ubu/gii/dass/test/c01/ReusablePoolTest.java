@@ -15,8 +15,9 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-
+import ubu.gii.dass.c01.DuplicatedInstanceException;
 import ubu.gii.dass.c01.NotFreeInstanceException;
+import ubu.gii.dass.c01.Reusable;
 // Importamos el objeto ReusablePool
 import ubu.gii.dass.c01.ReusablePool;
 
@@ -92,7 +93,45 @@ public class ReusablePoolTest {
 	 */
 	@Test
 	public void testReleaseReusable() {
-		fail("Not yet implemented");
+		
+	
+		// El objeto ReusablePool comienza con 2 objetos de clase Reusable
+		ReusablePool rp = ReusablePool.getInstance();
+		Reusable r1 = new Reusable();
+		Reusable r2 = new Reusable();
+		Reusable r3 = new Reusable();
+
+		// Instroducimos dos reusables distintos, no debería lanzar excepción
+		// NOTA: "rp" está vacío debido a la ejecución del test anterior
+		try {
+			rp.releaseReusable(r1);
+			rp.releaseReusable(r2);
+		} catch (Exception e) {
+			fail();
+		}
+
+		// Intentamos meter otro reusable NO REPETIDO superando la capacidad del pool inicial
+		try {
+			rp.releaseReusable(r3);
+		} catch (Exception e) {
+			fail();
+		}
+
+		// Intentamos liberar una instancia de Reusable ya contenida en el ReusablePool.
+		// Deberá lanzar la excepción DuplicatedInstanceException.
+		try {
+			rp.releaseReusable(r1);
+		} catch (Exception e) {
+			assertEquals(e.getClass(), DuplicatedInstanceException.class);
+		}
+		
+		try {
+			rp.releaseReusable(r2);
+		} catch (Exception e) {
+			assertEquals(e.getClass(), DuplicatedInstanceException.class);
+		}
+
 	}
+
 
 }
