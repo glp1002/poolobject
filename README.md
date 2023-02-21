@@ -43,7 +43,7 @@ ____
         - [Test 2: AcquireReusable](#test-2-acquirereusable)
         - [Test 3: ReleaseReusable](#test-3-releasereusable)
         - [Pruebas superadas](#pruebas-superadas)
-- [Preguntas](#preguntas)
+  - [Preguntas](#preguntas)
 
 <br/>
 
@@ -151,6 +151,7 @@ Se adjunta también la cobertura del método según el informe de Codecov.
 
 
 ![Test](img/codecov_test1.png)
+
 Figura 8: Informe Codecov cubierto
 
 <br/>
