@@ -64,42 +64,50 @@ public class ReusablePoolTest {
 	/**
 	 * Test method for {@link ubu.gii.dass.c01.ReusablePool#acquireReusable()}.
 	 */
-	@Test
-	public void testAcquireReusable() {
+	@Test(expected = NotFreeInstanceException.class)
+	public void testAcquireReusable() throws NotFreeInstanceException {
 		// El objeto ReusablePool comienza con 2 objetos de clase Reusable
 		ReusablePool rp = ReusablePool.getInstance();
 
 		// Obtenemos los dos elementos, no debería lanzar excepción
 		try {
-			assertNotNull(rp.acquireReusable());
-			assertNotNull(rp.acquireReusable());
+			Reusable r1 = rp.acquireReusable();
+			assertNotNull(r1);
+			r1.util();
+			Reusable r2 = rp.acquireReusable();
+			assertNotNull(r2);
+			r2.util();
 		} catch (Exception e) {
 			fail();
 		}
 
-		// Intentamos obtener otro elemento estando el pool vacío.
+		// Intentamos obtener elementos hasta cuando el pool se encuentre vacío.
 		// Deberá lanzar la excepción NotFreeInstanceExcepcion.
-		try {
+		while(true)
+		{
 			rp.acquireReusable();
-		} catch (Exception e) {
-			assertEquals(e.getClass(), NotFreeInstanceException.class);
 		}
+
 
 	}
 
 	/**
 	 * Test method for
 	 * {@link ubu.gii.dass.c01.ReusablePool#releaseReusable(ubu.gii.dass.c01.Reusable)}.
+	 * @throws DuplicatedInstanceException
 	 */
-	@Test
-	public void testReleaseReusable() {
+	@Test(expected = DuplicatedInstanceException.class)
+	public void testReleaseReusable() throws DuplicatedInstanceException {
 		
 	
 		// El objeto ReusablePool comienza con 2 objetos de clase Reusable
 		ReusablePool rp = ReusablePool.getInstance();
 		Reusable r1 = new Reusable();
+		r1.util();
 		Reusable r2 = new Reusable();
+		r2.util();
 		Reusable r3 = new Reusable();
+		r3.util();
 
 		// Instroducimos dos reusables distintos, no debería lanzar excepción
 		// NOTA: "rp" está vacío debido a la ejecución del test anterior
@@ -119,17 +127,11 @@ public class ReusablePoolTest {
 
 		// Intentamos liberar una instancia de Reusable ya contenida en el ReusablePool.
 		// Deberá lanzar la excepción DuplicatedInstanceException.
-		try {
-			rp.releaseReusable(r1);
-		} catch (Exception e) {
-			assertEquals(e.getClass(), DuplicatedInstanceException.class);
-		}
+
+		rp.releaseReusable(r1);
+
 		
-		try {
-			rp.releaseReusable(r2);
-		} catch (Exception e) {
-			assertEquals(e.getClass(), DuplicatedInstanceException.class);
-		}
+
 
 	}
 

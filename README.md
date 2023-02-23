@@ -28,22 +28,24 @@ ____
 
 ## **Tabla de contenido** 
 
+- [poolobject](#poolobject)
 - [**INFORME**](#informe)
   - [Alumnos](#alumnos)
-  - [Tabla de contenido](#tabla-de-contenido)
-  - [Enunciado](#enunciado)
-  - [Descripción del producto](#descripción-del-producto)
-    - [Creación del _fork_](#creación-del-fork)
-    - [Vinculación a Codecov](#vinculación-a-codecov)
-    - [Prueba de Codecov](#prueba-de-codecov)
-    - [Informe de Codecov](#informe-de-codecov)
-    - [README links](#readme-links)
-    - [Tests JUnit](#tests-junit)
-        - [Test 1: GetInstance](#test-1-getinstance)
-        - [Test 2: AcquireReusable](#test-2-acquirereusable)
-        - [Test 3: ReleaseReusable](#test-3-releasereusable)
-        - [Pruebas superadas](#pruebas-superadas)
-  - [Preguntas](#preguntas)
+  - [**Tabla de contenido**](#tabla-de-contenido)
+  - [**Enunciado**](#enunciado)
+  - [**Descripción del producto**](#descripción-del-producto)
+  - [**Descripción del proceso**](#descripción-del-proceso)
+    - [**Creación del _fork_:**](#creación-del-fork)
+    - [**Vinculación a Codecov:**](#vinculación-a-codecov)
+    - [**Prueba de Codecov:**](#prueba-de-codecov)
+    - [**Informe de Codecov:**](#informe-de-codecov)
+    - [**README links:**](#readme-links)
+    - [**Tests JUnit**](#tests-junit)
+      - [**Test 1: GetInstance**](#test-1-getinstance)
+      - [**Test 2: AcquireReusable**](#test-2-acquirereusable)
+      - [**Test 3: ReleaseReusable**](#test-3-releasereusable)
+      - [**Pruebas superadas**](#pruebas-superadas)
+  - [**Preguntas**](#preguntas)
 
 <br/>
 
@@ -53,9 +55,9 @@ En la práctica se va simular un pequeño desarrollo de un producto software par
 <br/>
 
 ## **Descripción del producto**
-Dado un código de ejemplo del patrón diseño creacional Pool Object, se debe crear una batería de pruebas tal
+Dado un código de ejemplo del patrón de diseño creacional Singleton aplicado a un Pool de objetos llamado Pool Object, se debe crear una batería de pruebas tal
 que las coberturas de sus clases sean del 100%. El código de las clases se puede obtener en el repositorio
-https://github.com/clopezno/poolobject. La batería de pruebas JUnit debe estar contenida en la clase `ubu.gii.dass.test.c01.ReuseblePoolTest.java`.
+https://github.com/clopezno/poolobject. La batería de pruebas JUnit debe estar contenida en la clase `ubu.gii.dass.test.c01.ReusablePoolTest.java`.
 
 <br/>
 
