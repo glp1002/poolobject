@@ -46,7 +46,12 @@ ____
       - [**Test 3: ReleaseReusable**](#test-3-releasereusable)
       - [**Pruebas superadas**](#pruebas-superadas)
   - [**Preguntas**](#preguntas)
+      - [**1. ¿Se ha realizado trabajo en equipo?**](#1-se-ha-realizado-trabajo-en-equipo)
+      - [**2. ¿Tiene calidad el conjunto de pruebas disponibles?**](#2-tiene-calidad-el-conjunto-de-pruebas-disponibles)
+      - [**3. ¿Cuál es el esfuerzo invertido en realizar la actividad?**](#3-cuál-es-el-esfuerzo-invertido-en-realizar-la-actividad)
+      - [**4. ¿Cuál es el número de fallos encontrados en el código?**](#4-cuál-es-el-número-de-fallos-encontrados-en-el-código)
   - [**Aspectos relevantes**](#aspectos-relevantes)
+  - [**BIBLIOGRAFÍA**](#bibliografía)
 
 <br/>
 
@@ -169,9 +174,12 @@ Los cambios necesarios se pueden apreciar en la siguiente captura de ReusablePoo
 <br/>
 
 ![Test](img/codigo_test2.png)
+
 Figura 9: Código del test 2 pasado
 
 <br/>
+
+Cabe mencionar que, debido a que no conocemos el números de objetos ```Reusable``` que contiene la instancia del _pool_ en un momento determinado (i.e. momento de ejecución del _test_), se ha incluido en el _test_ un bucle `while(true){...}` para vaciar el _pool_ de objetos.
 
 Se adjunta también la cobertura del método según el informe de Codecov.
 
@@ -191,6 +199,7 @@ Los cambios necesarios se pueden apreciar en la siguiente captura de ReusablePoo
 <br/>
 
 ![Test](img/codigo_test3.png)
+
 Figura 11: Código del test 3 pasado
 
 <br/>
@@ -238,40 +247,129 @@ Figura 15: Pruebas superadas
 ## **Preguntas**
 A continuación se tratará de dar respuesta a las siguientes preguntas:
 
-1. **¿Se ha realizado trabajo en equipo?** 
+<br/>
+
+#### **1. ¿Se ha realizado trabajo en equipo?** 
 Sí, se ha trabajado en equipo. Ambas personas han colaborado y compartido ideas en la realización del proyecto. Aunque se destaca que dos de los _tests_ se han realizado de manera individual por cada miembro del equipo.
 
-2. **¿Tiene calidad el conjunto de pruebas disponibles?** 
-Sí, el conjunto de pruebas disponibles tiene calidad. Se ha realizado una cobertura completa del código, intentando incluir casos límite y situaciones especiales.Es preciso tener en cuenta que los atributos de ReusablePool son privados y no tienen un método público para acceder a ellos y comprobar sus valores. A pesar de esta limitación, se intentado realizar pruebas exhaustivas que aseguran que el comportamiento del código es correcto en todas las situaciones posibles.
+Así pues, se han realizado un total de 18 _commits_. A continuación, se adjunta una imagen del siguiente [apartado](https://github.com/glp1002/poolobject/graphs/commit-activity) del repositorio en GitHub.
 
-3. **¿Cuál es el esfuerzo invertido en realizar la actividad?** 
+<br/>
+
+![Esfuerzo](img/esfuerzo_commits.png)
+
+Figura 16: Gráficas de commits I
+
+<br/>
+
+---
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;***Leyenda***
+- Gráfica 1: _Commits_ realizados por semana
+- Gráfica 2: _Commits_ realizados por día en la última semana (19-26 feb)
+---
+
+<br/>
+
+En este mismo repositorio se puede comprobar que ambos integrantes han hecho aportaciones similares al proyecto, incluso se han realizado _commits_ en conjunto.
+
+<br/>
+
+#### **2. ¿Tiene calidad el conjunto de pruebas disponibles?** 
+Sí, el conjunto de pruebas disponibles tiene calidad. Se ha realizado una **cobertura** completa del código, intentando incluir casos límite y situaciones especiales. Es preciso tener en cuenta que los atributos de ReusablePool son privados y no tienen un método público para acceder a ellos y comprobar sus valores. A pesar de esta limitación, se intentado realizar pruebas exhaustivas que aseguran que el comportamiento del código es correcto en todas las situaciones posibles.
+
+Codecov es una herramienta que nos permite medir el porcentaje de cobertura del código que se pretende probar (_ver Figura 14_). Puesto que ya se ha mencionado en numerosas ocasiones más arriba, no se desarrollará más al respecto.
+
+Como medida alternativa, se podría emplear como métrica el **número de casos de prueba** frente al conjunto real de métodos de prueba programados. 
+
+Otra medida importante que garantiza la calidad de las pruebas es el **número de fallos** en el código original que son capaces de detectar. Este aspecto se detallará en la [4ª pregunta](#4.-¿cuál-es-el-número-de-fallos-encontrados-en-el-código?).
+
+<br/>
+
+#### **3. ¿Cuál es el esfuerzo invertido en realizar la actividad?** 
 El esfuerzo invertido en realizar la actividad no ha sido muy alto, ya que la dificultad de la práctica no era muy elevada. En cuanto a la parte más complicada de la práctica, se podría destacar la conexión del proyecto a Codecov, puesto que era la primera vez que se trabajaba con esta herramienta. Sin embargo, gracias a la documentación proporcionada y la ayuda de los tutoriales, se pudo realizar la integración sin mayores inconvenientes.
 
-4. **¿Cuál es el número de fallos encontrados en el código?** 
-[TO DO]
+Como atributo de medición de la calidad, se ha decidido emplear el ***commit*** y, como unidad de medida, las **líneas modificadas** en cada _commit_. Partiendo de esta premisa, es posible calcular el total de líneas de código modificadas a lo largo de la práctica. A continuación, se adjuntan las métricas que proporciona GitHub al respecto.
+
+<br/>
+
+![Esfuerzo](img/esfuerzo_lineas.png)
+
+Figura 17: Gráficas de commits II
+
+<br/>
+
+Sobre esta imagen, es preciso puntualizar que, aunque las líneas de código pueden parecer una buena métrica _a priori_, no todas las líneas que se modifican suponen la misma cantidad de esfuerzo. Por ejemplo, muchas de ellas pertenecen a los cambios realizados en el presente informe, mientras que otras pertenecen a la realización de los _tests_ de JUnit. Evidentemente, estas últimas tienen mayor carga de trabajo. 
+
+Una alternativa que proponen los alumnos a esta medida es el empleo de la **estimación de poquer** de las historias de usuario generadas para el proyecto y determinadas por el equipo en conjunto. Esta métrica es mucho más confiable que las anteriores.
+
+<br/>
+
+#### **4. ¿Cuál es el número de fallos encontrados en el código?** 
+En el proceso de realización de las pruebas, se han detectado posibles errores, que no se han adjuntado puesto que no son parte de los métodos propuestos para esta entrega. Entre ellos, se proponen los siguientes:
+
+**Atributos privados**
+Los atributos de una clase que sigue el patrón Singleton deberían ser privados para evitar modificaciones en los mismos. Sin embargo, nada impide la implementación de métodos públicos ***get***, de forma que, si fuera necesario, se podría consultar dichos atributos.
+Por ejemplo, el atributo _size_ del Vector del _pool_ es muy útil para saber el número de objetos ```Reusable``` que contiene en un determinado momento. Para ello, se diseñaría un método de pruebas similar al siguiente:
+
+```java
+/* NOTA: No deberá de existir instancia previa de ReusablePool creándose una nueva mediante el constructor
+*/
+@Test
+public void testGetSize(){
+  //Instancia de ReusablePool
+  ReusablePool rp = ReusablePool.getInstance();
+  int size1 = rp.getSize();
+  // Inicialmente el pool se crea con dos instancias
+  assertEquals(size1,2);
+  // Extraemos Reusable
+  Reusable r = rp.AcquireReusable();
+  int size2 = rp.getSize();
+  assertEquals(size2,1);
+  // Introducimos Reusable
+  rp.ReleaseReusable(r);
+  int size3 = rp.getSize();
+  assertEquals(size3,3);
+}
+```
+
+Si se ejecuta este _test_, el código no pasará las pruebas puesto que no tiene un método público _get_ implementado.
+
+
+**Eliminar instancia**
+El patrón Singleton
+
+```java
+@Test
+public void testRemoveIstance(){
+  //Instancia de ReusablePool
+  ReusablePool rp = ReusablePool.getInstance();
+
+}
+```
+
 
 <br/>
 <br/>
 
 ## **Aspectos relevantes**
-A lo largo de la presente práctica, no ha surgido una dificultad en el segundo _test_. A pesar de comprobar que la excepción se lanza en los momentos adecuados, el informe de Codecov continuaba indicando lo contrario. También indicaba que no se había comprobado el tamaño del _pool_ cuando, en realidad, se trata de un atributo privado al que no tenemos acceso en el _test_.
+A lo largo de la presente práctica, nos ha surgido una dificultad en el segundo _test_. A pesar de comprobar que la excepción se lanza en los momentos adecuados, el informe de Codecov continuaba indicando lo contrario. También indicaba que no se había comprobado el tamaño del _pool_ cuando, en realidad, se trata de un atributo privado al que no tenemos acceso en el _test_.
 
 ![Error](img/errores.png)
 
-Figura 16: Errores en el segundo test
+Figura 18: Errores en el segundo test
 
 Para poder solucionar este problema (_commit_ 20bfdb8), se ha recurrido al atributo "expected" de la anotación @Test para declarar que esperamos que se lance una excepción en cualquier lugar del método de prueba anotado. Como resultado, cuando se ejecuta la prueba, esta fallará si la excepción especificada no es lanzada y pasará si es lanzada [1].
 
 ![Error](img/errores_solucion.png)
 
-Figura 17: Errores en el segundo test solucionados
+Figura 19: Errores en el segundo test solucionados
 
 Asimismo, se ha cambiado el método de prueba del tercer test con el fin de homogeneizar las técnicas de prueba.
 De esta forma, el porcentaje de cobertura de Codecov ha aumentado en un 10%.
 
 ![Error](img/10porciento.png)
 
-Figura 18: Aumento de la cobertura en Codecov
+Figura 20: Aumento de la cobertura en Codecov
 
 
 <br/>
