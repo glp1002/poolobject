@@ -46,6 +46,7 @@ ____
       - [**Test 3: ReleaseReusable**](#test-3-releasereusable)
       - [**Pruebas superadas**](#pruebas-superadas)
   - [**Preguntas**](#preguntas)
+  - [**Aspectos relevantes**](#aspectos-relevantes)
 
 <br/>
 
@@ -143,6 +144,7 @@ En este test se verifica que el sistema es capaz de obtener una instancia de `Re
 <br/>
 
 ![Test](img/codigo_test1.png)
+
 Figura 7: Código del test 1 pasado
 
 <br/>
@@ -175,10 +177,8 @@ Se adjunta también la cobertura del método según el informe de Codecov.
 
 <br/>
 
-![Test](img/codecov_test2.png)
+![Test](img/errores_solucion.png)
 Figura 10: Informe Codecov cubierto
-
-[TO DO: imagen]
 
 <br/>
 
@@ -217,14 +217,12 @@ Figura 13: Ejecución de pruebas superadas
 
 Además, se adjunta también la prueba del recubrimiento de Codecov.
 
-<br/>
-
-![Ejecución de pruebas superadas Codecov](img/pruebas_superadas_codecov.png)
-Figura 14: Ejecución de pruebas superadas en Codecov
 
 <br/>
 
-[TO DO: imagen]
+![Test](img/codecov_100.png)
+
+Figura 14: Pruebas superadas Codecov
 
 Es importante señalar que una vez comprobado que los _workflows_ se ejecutan correctamente, se ha vuelto a establecer la variable `haltonfailure` a ***true***, de forma que si en el futuro se introducen cambios que incumplen las pruebas, el flujo de trabajo no pasará y se indicará el fallo correspondiente. 
 
@@ -250,9 +248,46 @@ Sí, el conjunto de pruebas disponibles tiene calidad. Se ha realizado una cober
 El esfuerzo invertido en realizar la actividad no ha sido muy alto, ya que la dificultad de la práctica no era muy elevada. En cuanto a la parte más complicada de la práctica, se podría destacar la conexión del proyecto a Codecov, puesto que era la primera vez que se trabajaba con esta herramienta. Sin embargo, gracias a la documentación proporcionada y la ayuda de los tutoriales, se pudo realizar la integración sin mayores inconvenientes.
 
 4. **¿Cuál es el número de fallos encontrados en el código?** 
-[TO DO: terminar]
+[TO DO]
+
+<br/>
+<br/>
+
+## **Aspectos relevantes**
 A lo largo de la presente práctica, no ha surgido una dificultad en el segundo _test_. A pesar de comprobar que la excepción se lanza en los momentos adecuados, el informe de Codecov continuaba indicando lo contrario. También indicaba que no se había comprobado el tamaño del _pool_ cuando, en realidad, se trata de un atributo privado al que no tenemos acceso en el _test_.
-![Test](img/errores.png)
+
+![Error](img/errores.png)
+
 Figura 16: Errores en el segundo test
+
+Para poder solucionar este problema (_commit_ 20bfdb8), se ha recurrido al atributo "expected" de la anotación @Test para declarar que esperamos que se lance una excepción en cualquier lugar del método de prueba anotado. Como resultado, cuando se ejecuta la prueba, esta fallará si la excepción especificada no es lanzada y pasará si es lanzada [1].
+
+![Error](img/errores_solucion.png)
+
+Figura 17: Errores en el segundo test solucionados
+
+Asimismo, se ha cambiado el método de prueba del tercer test con el fin de homogeneizar las técnicas de prueba.
+De esta forma, el porcentaje de cobertura de Codecov ha aumentado en un 10%.
+
+![Error](img/10porciento.png)
+
+Figura 18: Aumento de la cobertura en Codecov
+
+
+<br/>
+<br/>
+
+___
+---
+
+<br/>
+<br/>
+
+## **BIBLIOGRAFÍA**
+
+- [1] title: "Assert an Exception is Thrown in JUnit 4 and 5."
+&nbsp;&nbsp;&nbsp;&nbsp;<br> author: "Baeldung"
+&nbsp;&nbsp;&nbsp;&nbsp;<br> date: "2018, April 13"
+&nbsp;&nbsp;&nbsp;&nbsp;<br> link: https://www.baeldung.com/junit-assert-exception 
 
 
