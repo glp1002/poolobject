@@ -46,7 +46,9 @@ public class ReusablePoolTest {
 	 */
 	@Test
 	public void testGetInstance() {
-
+		// Comprobación de la pregunta 4
+		//System.out.println("testGetInstance");
+		
 		// Obtenemos una instancia
 		ReusablePool rp1 = ReusablePool.getInstance();
 		// Comprobamos que la instancia no es nula
@@ -68,7 +70,10 @@ public class ReusablePoolTest {
 	public void testAcquireReusable() throws NotFreeInstanceException {
 		// El objeto ReusablePool comienza con 2 objetos de clase Reusable
 		ReusablePool rp = ReusablePool.getInstance();
-
+		
+		// Comprobación de la pregunta 4:
+		// System.out.println("testAcquireReusable");
+		
 		// Obtenemos los dos elementos, no debería lanzar excepción
 		try {
 			Reusable r1 = rp.acquireReusable();
@@ -81,12 +86,25 @@ public class ReusablePoolTest {
 			fail();
 		}
 
+		// Comprobación de la pregunta 4:
+		//System.out.println("Procedemos a contar los objetos: ");
+		//int contador = 0;
+
 		// Intentamos obtener elementos hasta cuando el pool se encuentre vacío.
 		// Deberá lanzar la excepción NotFreeInstanceExcepcion.
 		while(true)
 		{
+			// Comprobación de la pregunta 4:
+			//contador = contador + 1;
+			
 			rp.acquireReusable();
+
+			// Comprobación de la pregunta 4
+			//System.out.println(contador);
+			
+
 		}
+		
 
 
 	}
@@ -98,8 +116,9 @@ public class ReusablePoolTest {
 	 */
 	@Test(expected = DuplicatedInstanceException.class)
 	public void testReleaseReusable() throws DuplicatedInstanceException {
-		
-	
+		// Comprobación de la pregunta 4
+		//System.out.println("testReleaseReusable");
+
 		// El objeto ReusablePool comienza con 2 objetos de clase Reusable
 		ReusablePool rp = ReusablePool.getInstance();
 		Reusable r1 = new Reusable();
